@@ -58,9 +58,10 @@ def parse_args(defaults={"verbose": False, "configFile": None,
                           default=defaults["RFResolution"])
 
     optional.add_argument("--enzyme",
-                          choices=['DpnII', 'HindIII'],
+                          choices=['DpnII', 'HindIII', 'Arima'],
                           help="Which enzyme was used to create Hi-C "
-                               "library (default: '%(default)s')",
+                               "library. Arima corresponds to the combination "
+                               "of DpnII and HinfI (default: '%(default)s')",
                           default=defaults["enzyme"])
 
     optional.add_argument("--binSize",
