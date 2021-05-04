@@ -157,7 +157,7 @@ Most of the exploration below is based on the annotated DESeq2 output file gener
     ## Extract data for heatmap
     # order by fold change (by abs foldch if only few top genes requested)
     #print("Preparing data: heatmap")
-    if (nrow(df.filt) > 1) {
+    if (nrow(df.filt) > 0) {
         d <- data.frame(id = rownames(df.filt), padj = df.filt$padj)
         if (length(rownames(d)) < heatmap_topN ) {
             heatmap_topN <- nrow(d)
@@ -398,7 +398,7 @@ This plot shows a heatmap of DESeq2-normlized counts for the **top 20** differen
 
 ```{r 'heatmap2', fig.show=TRUE}
 # 7.1 Heatmap topN genes z-score
-if (nrow(df.filt) > 1) {
+if (nrow(df.filt) > 0) {
     pheatmap(heatmap_data,
              cluster_rows = TRUE,
              clustering_method = "average",
